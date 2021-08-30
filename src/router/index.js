@@ -5,7 +5,7 @@ Vue.use(VueRouter)
 
 const Login = () => import('views/login/index');
 const Tabbar = () => import('components/common/tabbar');
-
+//
 const Home = () => import('views/tabbar-subpage/home');
 const ProFlie = () => import('views/tabbar-subpage/proflie');
 const Video = () => import('views/tabbar-subpage/video');
