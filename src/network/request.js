@@ -1,10 +1,8 @@
+//封装axios
 import axios from 'axios'
 
-export function request(config) {
-    // 创建axios实例
-    const instance = axios.create({
-        baseURL: '',
-    })
-    // 发送网络请求
-    return instance(config)
-}
+const request = axios.create({
+    baseURL: '/api',
+})
+
+export default request
