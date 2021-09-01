@@ -5,7 +5,7 @@
       class="app-nav-bar"
       title="注册/登录"
       left-arrow
-      @click-left="$router.back"
+      @click-left="$router.back()"
     />
     <!-- 登录表单 -->
     <!-- 
@@ -43,7 +43,7 @@
         </template>
       </van-field>
       <div class="login-btn-warp">
-        <van-button class="login-btn" type="info" block>登录</van-button>
+        <van-button class="login-btn" type="info" block >登录</van-button>
       </div>
     </van-form>
     <!-- /登录表单 -->
@@ -92,11 +92,13 @@ export default {
         duration:0   //值为0时，登录框不消失
       });
       try {
-        const res = await loginApi(this.user)
+        //const res = await loginApi(this.user)
         this.$toast.success('登录成功')
         //将后台穿过来的token放入vuex中
-        this.$store.commit('setUser',res.data)
-        console.log(res)
+        this.$store.commit('setUser','123')
+        //登录成功从哪跳到登录页面回哪个页面
+        this.$router.back()
+        // console.log(res)
       }catch(err){
         this.$toast.fail('登录失败,手机号或验证码错误')
         console.log(err) 

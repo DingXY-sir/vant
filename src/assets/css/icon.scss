@@ -1,10 +1,10 @@
 @font-face {
   font-family: "icon"; /* Project id 2777765 */
-  src: url("//at.alicdn.com/t/font_2777765_wrhb4vc19qd.woff2?t=1630467432079")
+  src: url("//at.alicdn.com/t/font_2777765_41tg4582dcj.woff2?t=1630480735297")
       format("woff2"),
-    url("//at.alicdn.com/t/font_2777765_wrhb4vc19qd.woff?t=1630467432079")
+    url("//at.alicdn.com/t/font_2777765_41tg4582dcj.woff?t=1630480735297")
       format("woff"),
-    url("//at.alicdn.com/t/font_2777765_wrhb4vc19qd.ttf?t=1630467432079")
+    url("//at.alicdn.com/t/font_2777765_41tg4582dcj.ttf?t=1630480735297")
       format("truetype");
 }
 
@@ -14,6 +14,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-weidenglutouxiang:before {
+  content: "\e62b";
 }
 
 .icon-shoucang:before {
