@@ -103,6 +103,7 @@ export default {
       }
     },
     // 表单验证手机号、验证码错误提示
+    // 关闭表单默认提示错误，展示自己想要的提示
     onFailed(err){
       if(err.errors[0]){
         this.$toast({
@@ -113,9 +114,10 @@ export default {
     // 发送验证码
     async onSendSm() {
       try{
+        //验证表单，支持传入 name 来验证单个或部分表单项，只校验自己想校验的内容
+        await this.$refs["login-from"].validate('mobile')
         //防止网络原因，导致用户可以多次点击
         this.isCodeShow = true
-        await this.$refs["login-from"].validate('mobile')
         //验证通过，请求验证码
         this.isShow = true
 
