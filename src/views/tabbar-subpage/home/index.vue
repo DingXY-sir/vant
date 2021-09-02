@@ -11,6 +11,7 @@
     <!-- 首页Tab标签 -->
     <van-tabs v-model="active">
       <van-tab v-for="item in channels" :key="item.id" :title="item.name">
+        <!-- 上拉加载组件 -->
         <Article :channels="item"/>
       </van-tab>
     </van-tabs>
@@ -19,7 +20,7 @@
 
 <script>
 // 文章列表组件
-import Article from 'components/common/article'
+import Article from './common/article'
 export default {
   name:'Home',
   components: {

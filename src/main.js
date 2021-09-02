@@ -14,6 +14,9 @@ import 'amfe-flexible'
 
 //引入全局样式
 import './assets/css/index.scss'
+
+//引入时间日期格式化
+import './utils/day'
 //使用vant
 Vue.use(Vant);
 
