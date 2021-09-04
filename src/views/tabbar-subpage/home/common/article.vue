@@ -1,18 +1,20 @@
 <template>
   <!--首页文章列表组件  -->
   <div class="article-container">
-    <van-list
-      v-model="loading"
-      :finished="finished"
-      finished-text="没有更多了"
-      @load="onLoad"
-    >
-      <!-- 下拉刷新 -->
-      <van-pull-refresh v-model="refreshing" @refresh="onRefresh" >
-        <!-- 列表展示公共组件 -->
-        <ArticleItem v-for="(item, index) in articleList" :key="index"  :aritcleItem = "item" />
-      </van-pull-refresh>
-    </van-list>
+     <!-- 下拉刷新 -->
+    <van-pull-refresh v-model="refreshing" @refresh="onRefresh" >
+      <van-list
+        v-model="loading"
+        :finished="finished"
+        finished-text="没有更多了"
+        @load="onLoad"
+      >
+      
+          <!-- 列表展示公共组件 -->
+          <ArticleItem v-for="(item, index) in articleList" :key="index"  :aritcleItem = "item" />
+      
+      </van-list>
+    </van-pull-refresh>
   </div>
 </template>
 
