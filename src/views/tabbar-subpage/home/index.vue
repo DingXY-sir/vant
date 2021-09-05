@@ -32,6 +32,8 @@
 import Article from './common/article'
 // 导航编辑内容
 import EditLayer from './common/editLayer.vue'
+import {getItem} from '@/utils/storage'
+import {mapState} from 'vuex'
 export default {
   name:'Home',
   components: {
@@ -56,13 +58,37 @@ export default {
     };
   },
   watch: {},
-  computed: {},
+  computed: {
+    ...mapState(['user'])
+  },
+  created() {
+    this.loadChannels()
+  },
   methods: {
     updateActive(index) {
       this.active = index
+    },
+    //展示频道持久化数据
+    loadChannels() {
+      let channel =[]
+      if(this.user) {
+        //展示登录状态下的频道数据
+        
+      }else{
+        //展示未登录下的频道
+        const localStorage = getItem('user-channel')
+        if(localStorage) {
+          //如果本地有缓存，展示
+          channel = localStorage
+        }else{
+          //展示默认状态下的数据
+          channel = this.channels
+        }
+      }
+      this.channels = channel
     }
+
   },
-  created() {},
   mounted() {}
 };
 </script>

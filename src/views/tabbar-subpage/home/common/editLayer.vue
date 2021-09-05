@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+import {setItem} from '@/utils/storage'
 export default {
   name:'EditLayer',
   components: {},
@@ -53,6 +55,8 @@ export default {
   },
   watch: {},
   computed: {
+    //获取登录信息
+    ...mapState(['user']),
     channelsTitle() {
       // 1、循环所以tab标签
       return this.all_article.filter(value => {
@@ -68,6 +72,14 @@ export default {
     //添加频道
     addArticle(value) {
       this.channels.push(value)
+      // 添加数据持久化
+      if(this.user) {
+        //登录中,调用添加频道接口
+
+      }else{
+        //将添加频道保存在储存里
+        setItem('user-channel',this.channels)
+      }
     },
     //移除频道
     removeArticle(index) {
@@ -85,6 +97,12 @@ export default {
         this.$emit('updateActive', this.active-1);
       }
       this.channels.splice(index,1)
+      if(this.user) {
+        //调用删除频道接口删除
+      }else{
+        //删除数据持久化（本地）
+        setItem('user-channel',this.channels)
+      }
     },
     switchChannel(index) {
       // 切换频道
