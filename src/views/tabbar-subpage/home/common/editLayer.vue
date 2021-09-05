@@ -7,7 +7,7 @@
     </van-cell>
     <!-- 宫格布局 -->
     <van-grid :gutter="10">
-      <van-grid-item class="grid-item" :icon="isClearShow ? 'clear' :''" v-for="(value, index) in channels" :key="value.id"  :text="value.name"  @click="removeArticle(index)" />
+      <van-grid-item class="grid-item" :class="{active : index === active}" :icon="isClearShow ? 'clear' :''" v-for="(value, index) in channels" :key="value.id"  :text="value.name"  @click="removeArticle(index)" />
     </van-grid>
     <!-- 频道推荐 -->
     <van-cell center :border="false">
@@ -28,6 +28,10 @@ export default {
     channels:{  //我的频道数据
       type:Array,
       required:true
+    },
+    active:{
+      type:Number,
+      required:true
     }
   },
   data() {
@@ -44,7 +48,7 @@ export default {
         {name:"腾讯",id:8},
         {name:"阿里",id:9}
       ],
-      isClearShow:false   //取消按钮显示隐藏
+      isClearShow:false   //频道取消按钮显示隐藏
     };
   },
   watch: {},
@@ -76,6 +80,10 @@ export default {
       }
     },
     deleteChannel(index) {
+      // 解决高亮情况下删除前边的会随着active的值改变
+      if(index <= this.active) {
+        this.$emit('updateActive', this.active-1);
+      }
       this.channels.splice(index,1)
     },
     switchChannel(index) {
@@ -83,6 +91,7 @@ export default {
       this.$emit('updateActive', index);
       // 关闭编辑弹出层
       this.$emit('close',index);
+
     }
   },
   created() {},
@@ -112,6 +121,11 @@ export default {
     }
     ::v-deep .van-grid-item__content{
       background-color: #f4f5f6;
+    }
+  }
+  ::v-deep .active{
+    .van-grid-item__text{
+      color: red;
     }
   }
 }

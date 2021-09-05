@@ -22,7 +22,7 @@
     </van-tabs>
     <!-- 编辑弹出层 -->
     <van-popup v-model="isEditEjectShow" position="bottom" class="edit-layer" closeable close-icon-position="top-left" get-container="body">
-      <EditLayer :channels="channels"  @close="isEditEjectShow = false" @updateActive="updateActive" />
+      <EditLayer :channels="channels" :active="active"  @close="isEditEjectShow = false" @updateActive="updateActive"  />
     </van-popup>
   </div>
 </template>
