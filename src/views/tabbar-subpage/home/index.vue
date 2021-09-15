@@ -6,7 +6,7 @@
         <img class="logo" src="~assets/logo.png" alt="">
         <span>Vant频道</span>
       </template>  
-      <van-button  class="search" slot="right" type="info"  icon-prefix="icon" icon="sousuo" size="small" round >搜索</van-button>
+      <van-button  class="search" slot="right" type="info"  icon-prefix="icon" icon="sousuo" size="small" round to="/search" >搜索</van-button>
     </van-nav-bar>
     <!-- 首页Tab标签 -->
     <van-tabs v-model="active" >
@@ -15,7 +15,7 @@
         <Article :channels="item"/>
       </van-tab>
       <!-- 编辑层按钮 -->
-      <div slot="nav-right" class="channels-end"></div>
+      <div slot="nav-right" class="channels-end"></div>  <!-- 占位 -->
       <div slot="nav-right" class="channels-edit" @click="isEditEjectShow = true">
         <van-icon name="wap-nav" />
       </div>

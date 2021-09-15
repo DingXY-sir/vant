@@ -9,7 +9,7 @@
         finished-text="没有更多了"
         @load="onLoad"
       >
-      
+  
           <!-- 列表展示公共组件 -->
           <ArticleItem v-for="(item, index) in articleList" :key="index"  :aritcleItem = "item" />
       

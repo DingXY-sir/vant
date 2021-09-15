@@ -1,6 +1,6 @@
 <template>
   <div class="tabbar-container">
-    <!-- 子路有出口 -->
+    <!-- 导航页面子路有出口 -->
     <router-view />
 
     <!-- 导航栏 -->
