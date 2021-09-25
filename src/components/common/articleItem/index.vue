@@ -1,5 +1,5 @@
 <template>
-  <van-cell>
+  <van-cell :to="{name:'articles',params:{articleId:aritcleItem.id}}">
     
     <!-- 文章列表titile -->
     <div slot="title">

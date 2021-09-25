@@ -34,7 +34,7 @@ export default {
       //当数据发生变化会执行handler
       handler : debounce(function() {
         //处理数据1、接口传参 2、获取数据 3、展示数据
-        console.log("000")
+        console.log(this.searchText,"10.1")
       },200),
       immediate:true   //该属性会在数据变化时立即执行
     }

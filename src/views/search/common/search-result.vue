@@ -33,6 +33,7 @@ export default {
     onLoad() {
       // 异步更新数据
       // setTimeout 仅做示例，真实场景中一般为 ajax 请求
+      //通过searchText输入框的内容查询1、请求数据、2、展示数据3、加载状态结束4、数据全部加载完成this.finished = true;
       setTimeout(() => {
         for (let i = 0; i < 10; i++) {
           this.list.push(this.list.length + 1);

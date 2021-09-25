@@ -119,7 +119,7 @@ export default {
   }
   .channels-end{
     width: 33px;
-    flex-shrink: 0;
+    flex-shrink: 0; 
   }
   .channels-edit{
     width: 33px;

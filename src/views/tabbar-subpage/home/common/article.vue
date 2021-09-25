@@ -11,7 +11,7 @@
       >
   
           <!-- 列表展示公共组件 -->
-          <ArticleItem v-for="(item, index) in articleList" :key="index"  :aritcleItem = "item" />
+          <ArticleItem v-for="(item, index) in articleList" :key="index"  :aritcleItem = "item"  />
       
       </van-list>
     </van-pull-refresh>
